@@ -1,0 +1,14 @@
+{
+  "name": "selfbits-ionic-starter",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
+  },
+  "dependencies": {
+    "selfbits-angular-sdk": "^1.1.0",
+    "ionic": "^1.2.4"
+  }
+}
