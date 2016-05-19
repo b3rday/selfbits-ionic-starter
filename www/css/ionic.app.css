@@ -3067,7 +3067,34 @@ html {
 body {
   margin: 0;
   line-height: 1; }
-
+.icn {
+  padding:0px;font-size: 1.2em;
+}
+.appname-frst {
+  color:#00a8ff!important;
+}
+.appname-scnd {
+  color:#000;
+}
+.appicon {
+  text-align:
+  center;padding:10px;
+  font-size: 6.2em;
+  color:#00a8ff
+}
+.fb-btn {
+  background-color:#3e5b98!important;
+  color:#fff!important;
+}
+.gplus-btn {
+  background-color:#dd4b39!important;
+  color:#fff!important;
+}
+.signup_question {
+  font-size:1.2em;
+  text-decoration:none;
+  color:#888;
+}
 /**
  * Remove default outlines.
  */
@@ -3563,6 +3590,7 @@ ion-infinite-scroll {
   width: 100%;
   height: 100%;
   background-color: #fff;
+  background-image:url('../img/cubes.png');
   overflow: hidden; }
 
 .view-container {

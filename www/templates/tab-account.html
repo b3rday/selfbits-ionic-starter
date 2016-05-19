@@ -1,7 +1,55 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
-    <ion-item ng-click="logout()">Log out</ion-item>
-    </ion-list>
+    <p align="center">
+      <div class="item item-avatar">
+	    <img src="/img/ben.png">
+	    <h2>John Doe</h2>
+	    <p>January 05, 2016</p>
+	  </div>
+    </p>
+    <ul class="list">
+
+	  <li class="item item-toggle">
+	     Track my GPS
+	     <label class="toggle">
+	       <input type="checkbox">
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </li>
+	   <li class="item item-toggle">
+	     E-Mail Notifications
+	     <label class="toggle">
+	       <input type="checkbox">
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </li>	
+	   <li class="item item-toggle">
+	     App Notifications
+	     <label class="toggle">
+	       <input type="checkbox">
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </li>
+	   <li class="item item-toggle">
+	     Sleep mode
+	     <label class="toggle">
+	       <input type="checkbox">
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </li>
+
+	</ul>
+    <button class="button button-full button-assertive", ng-click="logout()">
+      Sign Out
+    </button>
+ 
   </ion-content>
 </ion-view>

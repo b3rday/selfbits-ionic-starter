@@ -1,5 +1,11 @@
 <ion-view view-title="Login">
   <ion-content class="padding">
+    <div style="margin:20px;text-align:center;">
+      <i class="ion-waterdrop appicon"></i>
+      <h1>
+        <span class="appname-frst">your</span><span class="appname-scnd">App</span>
+      </h1>
+    </div>
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Email</span>
@@ -10,18 +16,32 @@
         <input type="password", ng-model="user.password">
       </label>
     </div>
-    <button class="button button-block button-balanced", ng-click="login(user)">
+    <button class="button button-block button-dark", ng-click="login(user)">
       Sign In
     </button>
-    <button class="button button-block button-dark", ui-sref="auth.signup">
-      Sign Up
+    <div align="center">
+
+    <br />
+      <h4>or use Social Login</h4>
+    </div>
+    
+    <button  class="button button-block button-icon-left fb-btn" ng-click="social('facebook')">
+      <span class="button-inner">
+        <ion-icon name="facebook" role="img" class="ion-social-facebook icn" aria-label="facebook"></ion-icon>
+        Facebook Login
+      </span><ion-button-effect></ion-button-effect>
     </button>
-    <ion-item>Sign in using</ion-item>
-    <button class="button button-block button-positive", ng-click="social('facebook')">
-      Facebook
+    <button  class="button button-block button-icon-left gplus-btn" ng-click="social('facebook')">
+      <span class="button-inner">
+        <ion-icon name="gplus" role="img" class="ion-social-googleplus icn" aria-label="gplus"></ion-icon>
+        Google+ Login
+      </span><ion-button-effect></ion-button-effect>
     </button>
-    <button class="button button-block button-energized", ng-click="social('google')">
-      Google
-    </button>
+    <div align="center">
+
+      <a ui-sref="auth.signup" class="signup_question">
+        Don't have an account yet? Sign Up.
+      </a>
+    </div>
   </ion-content>
 </ion-view>
