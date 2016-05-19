@@ -110,7 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 		var deferred = $q.defer();
 		if ($sbAuth.isAuthenticated()) {
 			$location.path('/tab/dash');
-			deferred.reject();
+			deferred.resolve();
 		} else {
 			deferred.resolve();
 		}
@@ -119,11 +119,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 	function loginRequired($q, $location, $sbAuth) {
 		var deferred = $q.defer();
+		console.log($sbAuth.isAuthenticated());
 		if ($sbAuth.isAuthenticated()) {
 			deferred.resolve();
 		} else {
+			console.log('to auth login');
 			$location.path('/auth/login');
-			deferred.reject();
+			deferred.resolve();
 		}
 		return deferred.promise;
 	}
