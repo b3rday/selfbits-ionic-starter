@@ -21,31 +21,65 @@ angular.module('starter.controllers', [])
 	$scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope, $sbAuth, $state) {
+.controller('AccountCtrl', function($scope, $sbAuth, $state, $ionicPopup) {
+	$scope.logoutAlert = function() {
+      var sbAlert = $ionicPopup.confirm({
+         title: 'Do you really want to log out?',
+         template: 'Please confirm.'
+      });
+
+      sbAlert.then(function(res) {
+         if(res) {
+            console.log('Log Out');
+            $sbAuth.logout();
+			$state.go('auth.login');
+         } else {
+            console.log('Cancel');
+         }
+      });  
+   };
+	
 	$scope.logout = function() {
 		$sbAuth.logout();
 		$state.go('auth.login');
 	}
 })
 
-.controller('AuthLoginCtrl', function($sbAuth, $scope, $state) {
+
+.controller('AuthLoginCtrl', function($sbAuth, $scope, $state, $ionicPopup) {
 	$scope.login = function(user) {
 		$sbAuth.login(user).then(function(res) {
 			$state.go('tab.dash');
+		}).catch(function(err) {
+			var sbAlert = $ionicPopup.alert({
+		        title: 'Error' ,
+		        template: err.data.message
+		    });
 		});
 	}
 	$scope.social = function(provider) {
 		$sbAuth.social(provider).then(function(res) {
 			$state.go('tab.dash');
+		}).catch(function(err) {
+			console.log(err.data.message);
+			var sbAlert = $ionicPopup.alert({
+		        title: 'Error' ,
+		        template: 'Social Login failed. Please try again.'
+		    });
+
 		});
 	}
 })
 
-.controller('AuthSignupCtrl', function($sbAuth, $scope, $state) {
+.controller('AuthSignupCtrl', function($sbAuth, $scope, $state, $ionicPopup) {
 	$scope.signup = function(user) {
 		$sbAuth.signup(user).then(function(res) {
 			$state.go('tab.dash');
+		}).catch(function(err) {
+			var sbAlert = $ionicPopup.alert({
+		        title: 'Error' ,
+		        template: err.data.message
+		    });
 		});
-	}
-
+	}	
 });
