@@ -30,7 +30,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
+.account-profile-bg {
+  background-image:url('../img/ben_bg.png');
+  background-position:center;
+  height:250px;
+  background-size:cover;
+  padding-top:80px
+}
 .icn {
   padding:0px;font-size: 1.2em;
 }
