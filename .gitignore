@@ -7,3 +7,5 @@ plugins/
 www/lib
 resources/
 platforms/
+www/css/
+npm-debug.log
