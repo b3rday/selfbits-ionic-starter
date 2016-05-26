@@ -55,10 +55,34 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .fb-btn {
   background-color:#3e5b98!important;
   color:#fff!important;
+  margin:7px;
+
+}
+.forgotpassword {
+  text-align:right;
+  margin:5px;
+}
+.signup_link {
+  color:#00a8ff!important;
+  
 }
 .gplus-btn {
   background-color:#dd4b39!important;
   color:#fff!important;
+  margin:7px;
+
+}
+.github-btn {
+  background-color:#333333!important;
+  color:#fff!important;
+  margin:7px;
+
+}
+.twitter-btn {
+  background-color:#55acee!important;
+  color:#fff!important;
+  margin:7px;
+
 }
 .signup_question {
   font-size:1.2em;
@@ -70,26 +94,26 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   background-image: url('../img/cubes.png');
 }
 
-.tabs { 
+.tabs {
   border-color: #0281e4!important;
   background-color: #0281e4!important;
   height: 65px!important;
   border-top-width: 0px!important;
-  line-height: 65px!important; 
+  line-height: 65px!important;
   padding-top: 0px!important;
   border-top: none !important;
-  background-size: 100% 0px;  
+  background-size: 100% 0px;
   }
 
 ion-tabs.tabs-color-active-positive .tab-item {
     color: #fff;
-} 
+}
 ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
     color: #fff;
     background-color: #0073c5;
 }
 .tab-item .icon {
- 
+
   margin-top:10px!important;
 }
 .tab-item.activated {
