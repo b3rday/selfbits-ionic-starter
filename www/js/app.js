@@ -95,6 +95,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 				}
 			}
 		})
+		.state('tab.todo', {
+			url: '/todo',
+			views: {
+				'tab-todo': {
+					templateUrl: 'templates/tab-todo.html',
+					controller: 'ToDoCtrl'
+				}
+			}
+		})
 		.state('tab.account', {
 			url: '/account',
 			views: {

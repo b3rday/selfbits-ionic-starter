@@ -1,0 +1,46 @@
+<ion-view view-title="ToDo List">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-positive button-clear" ng-click="add()" ng-if="!showTutorial">
+      Add
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list can-swipe="true">
+      <ion-item ng-if="showTutorial">
+        <div class="card">
+          <div class="item item-divider">
+            Error: You need to setup a collection
+          </div>
+          <div class="item item-text-wrap">
+            <p>
+            Head to the
+            <a href="http://baas.selfbits.org" target="_blank">Admin Dashboard</a>
+            and add a Collection named
+            <code>"todo"</code>
+            with a schema
+          </p>
+            <p>
+              <code>
+{
+  "name" : String,
+  "details" : String
+}
+              </code>
+            </p>
+            <p>
+              As soon as you added the collection the example will work as expected!
+            </p>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item class="item-remove-animate" ng-repeat="todo in todos.docs" type="item-text-wrap">
+        <img ng-src="{{chat.face}}">
+        <h2>{{todo.name}}</h2>
+        <p>{{todo.details}}</p>
+        <ion-option-button class="button-assertive" ng-click="remove(todo)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
