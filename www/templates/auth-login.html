@@ -5,7 +5,17 @@
       <h1>
         <span class="appname-frst">your</span><span class="appname-scnd">App</span>
       </h1>
+      <br />
+      <a ui-sref="auth.signup" class="signup_question">
+        Don't have an account yet? Sign Up.
+      </a>
     </div>
+
+    <div align="center">
+
+
+    </div>
+
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Email</span>
@@ -16,32 +26,41 @@
         <input type="password", ng-model="user.password">
       </label>
     </div>
-    <button class="button button-block button-dark", ng-click="login(user)">
-      Sign In
-    </button>
-    <div align="center">
-
-    <br />
-      <h4>or use Social Login</h4>
+    <div class="row">
+      <div class="col">
+        <button class="button button-block button-dark", ng-click="login(user)">
+          Sign In
+        </button>
+      </div>
+      <div class="col forgotpassword">Forgot Password?</div>
     </div>
-    
-    <button  class="button button-block button-icon-left fb-btn" ng-click="social('facebook')">
-      <span class="button-inner">
-        <ion-icon name="facebook" role="img" class="ion-social-facebook icn" aria-label="facebook"></ion-icon>
-        Facebook Login
-      </span><ion-button-effect></ion-button-effect>
-    </button>
-    <button  class="button button-block button-icon-left gplus-btn" ng-click="social('facebook')">
-      <span class="button-inner">
-        <ion-icon name="gplus" role="img" class="ion-social-googleplus icn" aria-label="gplus"></ion-icon>
-        Google+ Login
-      </span><ion-button-effect></ion-button-effect>
-    </button>
     <div align="center">
+      <br />
+      <h4>or Sign In with one click</h4>
+      <button  class="button button-icon-left fb-btn" ng-click="social('facebook')">
+        <span class="button-inner">
+          <ion-icon name="facebook" role="img" class="ion-social-facebook icn" aria-label="facebook"></ion-icon>
+        </span><ion-button-effect></ion-button-effect>
+      </button>
 
-      <a ui-sref="auth.signup" class="signup_question">
-        Don't have an account yet? Sign Up.
-      </a>
+      <button  class="button button-icon-left gplus-btn" ng-click="social('google')">
+        <span class="button-inner">
+          <ion-icon name="gplus" role="img" class="ion-social-googleplus icn" aria-label="gplus"></ion-icon>
+        </span><ion-button-effect></ion-button-effect>
+      </button>
+      <button  class="button button-icon-left github-btn" ng-click="social('github')">
+        <span class="button-inner">
+          <ion-icon name="github" role="img" class="ion-social-github icn" aria-label="github"></ion-icon>
+        </span><ion-button-effect></ion-button-effect>
+      </button>
+      <button  class="button button-icon-left twitter-btn" ng-click="social('twitter')">
+        <span class="button-inner">
+          <ion-icon name="twitter" role="img" class="ion-social-twitter icn" aria-label="twitter"></ion-icon>
+        </span><ion-button-effect></ion-button-effect>
+      </button>
+
     </div>
+
+
   </ion-content>
 </ion-view>
