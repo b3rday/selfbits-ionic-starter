@@ -1,6 +1,8 @@
 # [Selfbits Backend as a Service (BaaS)](http://www.selfbits.org) Mobile App Starter
 
-A simple tab-based Mobile Application template to get you started with Selfbits BaaS. This template is based on [ionic-starter-tabs](https://github.com/driftyco/ionic-starter-tabs).
+A tab-based Mobile Application template to get you started with Selfbits BaaS. It introduces you to Selfbits Authorization services with OAuth integration and to Selfbits Database-as-a-Service service. 
+
+This template is based on [ionic-starter-tabs](https://github.com/driftyco/ionic-starter-tabs). 
 
 ## Prerequisites
 What you need for your App to run:
@@ -17,7 +19,7 @@ What you need for your App to run:
 Now go back to your terminal:
 ```sh
 $ cd selfbits-ionic-starter
-$ sudo npm install -g ionic cordova
+$ sudo npm install
 $ bower install
 ```
 #### Step 3
@@ -35,6 +37,24 @@ Now you are all set and can start your application:
  $ionic serve
 ```
 Your application should now automatically start and open in a browser window.
+
+## Using Selfbits Database-As-A-Service
+Using our Database-as-a-Service option, you won't need a dedicated database provider. Selfbits Ionic Starter shows you the use of DBaaS on a Todo-List example. You are able to add tasks or delete tasks by swipe.
+Before you can use DBaaS you have to set up a collection:
+
+1. Go to http://baas.selfbits.org and navigate to Database -> Collections
+2. Add a a collection and name it "todo"
+3. Add the following schema to the collection:
+
+```
+{
+	"name" : String,
+	"details" : String
+}
+```
+
+As soon as you added the collection the example will work as expected!
+
 
 ## Adding Social login
 
@@ -79,7 +99,7 @@ Facebook Login should now work for Development Users of your Facebook applicatio
 2. Select Github as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider List -> Github -> Edit
 3. Insert the Client ID and Secret from Github and save the settings.
 
-For further information regarding the github login visit their developer page at https://developer.github.com
+For further information regarding the Github login visit their developer page at https://developer.github.com
 
 ### Google login
 
@@ -103,3 +123,71 @@ For further information regarding the github login visit their developer page at
 1. Go back to your Selfbits BaaS dashboard and select your project.
 2. Select Github as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider List -> Google -> Edit
 3. Insert the Client ID and Secret from Google and save the settings.
+
+
+### Bitbucket login
+#### Step 1
+
+1. Go to your Selfbits BaaS dashboard and select your project.
+2. Add Bitbucket as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider -> Bitbucket -> Add
+3. Copy the application callback url to your clipboard.
+
+
+#### Step 2
+
+1. Go to http://bitbucket.org and navigate to Settings -> Access Management -> OAuth
+2. Add a new consumer by clicking on "OAuth consumers -> Add consumer"
+3. Enter your Application information and select at least "E-Mail" as Permission Scope. Enter your Selfbits BaaS callback URL at "Callback URL"
+
+#### Step 3
+
+1. Go back to your Selfbits BaaS dashboard and select your project.
+2. Select Bitbucket as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider List -> Bitbucket -> Edit
+3. Insert the Client ID and Secret from Bitbucket and save the settings.
+
+For further information regarding the Bitbucket login visit their developer page.
+
+
+
+### Instagram login
+#### Step 1
+
+1. Go to your Selfbits BaaS dashboard and select your project.
+2. Add Instagram as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider -> Instagram -> Add
+3. Copy the application callback url to your clipboard.
+
+
+#### Step 2
+
+1. Go to https://www.instagram.com/developer/ and click on "Register a new application" (eventually you have to register as a developer)
+2. Enter your applications information. Enter your Selfbits BaaS Callback Url at "Valid redirect URIs".
+3. Copy your Client ID and Secret
+
+#### Step 3
+
+1. Go back to your Selfbits BaaS dashboard and select your project.
+2. Select Instagram as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider List -> Instagram -> Edit
+3. Insert the Client ID and Secret from Instagram and save the settings.
+
+For further information regarding the Instagram login visit their developer page at https://www.instagram.com/developer/
+
+### Slack login
+#### Step 1
+
+1. Go to your Selfbits BaaS dashboard and select your project.
+2. Add Slack as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider -> Slack -> Add
+3. Copy the application callback url to your clipboard.
+
+#### Step 2
+
+1. Go to https://api.slack.com/apps and create a new app
+2. Enter your applications information. Enter your Selfbits BaaS Callback Url at "Redirect URI(s)".
+3. Copy your Client ID and Secret.
+
+#### Step 3
+
+1. Go back to your Selfbits BaaS dashboard and select your project.
+2. Select Slack as an Authentication provider: Authentication > Auth Provider -> Add Authentication Provider List -> Slack -> Edit
+3. Insert the Client ID and Secret from Slack and save the settings.
+
+For further information regarding the Slack login visit their developer page at https://api.slack.com/
