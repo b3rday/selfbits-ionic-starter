@@ -7,7 +7,7 @@
       </h1>
       <br />
       <a ui-sref="auth.signup" class="signup_question">
-        Don't have an account yet? Sign Up.
+        Don't have an account yet? <span class="appname-frst">Sign Up</span>.
       </a>
     </div>
 
@@ -32,7 +32,7 @@
           Sign In
         </button>
       </div>
-      <div class="col forgotpassword">Forgot Password?</div>
+      <div class="col forgotpassword appname-frst">Forgot Password?</div>
     </div>
     <div align="center">
       <br />
@@ -53,10 +53,19 @@
           <ion-icon name="github" role="img" class="ion-social-github icn" aria-label="github"></ion-icon>
         </span><ion-button-effect></ion-button-effect>
       </button>
-      <button  class="button button-icon-left twitter-btn" ng-click="social('twitter')">
+
+      <button  class="button button-icon-left bitbucket-btn" ng-click="social('bitbucket')">
         <span class="button-inner">
-          <ion-icon name="twitter" role="img" class="ion-social-twitter icn" aria-label="twitter"></ion-icon>
+          <ion-icon name="bitbucket" role="img" class="ion-social-bitbucket icn" aria-label="bitbucket"></ion-icon>
         </span><ion-button-effect></ion-button-effect>
+      </button>
+      <button  class="button button-icon-left instagram-btn" ng-click="social('instagram')">
+        <span class="button-inner">
+          <ion-icon name="instagram" role="img" class="ion-social-instagram icn" aria-label="instagram"></ion-icon>
+        </span><ion-button-effect></ion-button-effect>
+      </button>
+      <button  class="button button-icon-left slack-btn" ng-click="social('slack')">
+        
       </button>
 
     </div>
