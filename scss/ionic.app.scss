@@ -52,12 +52,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: 6.2em;
   color:#00a8ff
 }
-.fb-btn {
-  background-color:#3e5b98!important;
-  color:#fff!important;
-  margin:7px;
 
-}
 .forgotpassword {
   text-align:right;
   margin:5px;
@@ -66,24 +61,56 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   color:#00a8ff!important;
 
 }
+.fb-btn {
+  background-color:#3e5b98!important;
+  color:#fff!important;
+  margin:1px;
+
+}
 .gplus-btn {
   background-color:#dd4b39!important;
   color:#fff!important;
-  margin:7px;
+  margin:1px;
 
 }
 .github-btn {
   background-color:#333333!important;
   color:#fff!important;
-  margin:7px;
+  margin:1px;
 
 }
 .twitter-btn {
   background-color:#55acee!important;
   color:#fff!important;
-  margin:7px;
+  margin:1px;
 
 }
+.instagram-btn {
+  background-color:#e95950!important;
+  color:#fff!important;
+  margin:1px;
+
+}
+.bitbucket-btn {
+  background-color:#205081!important;
+  color:#fff!important;
+  margin:1px;
+  background-size: 35px 35px;
+  background-position: center;
+  background-image: url('../img/bitbucket.png');
+  background-repeat: no-repeat;
+
+}
+.slack-btn {
+  background-color:#4D394B!important;
+  color:#fff!important;
+  margin:1px;
+  background-size: 40px 40px;
+  background-position: center;
+  background-image: url('../img/slack.png');
+  background-repeat: no-repeat;
+}
+
 .signup_question {
   font-size:1.2em;
   text-decoration:none;
