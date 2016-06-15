@@ -22,11 +22,11 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ToDoCtrl', function($scope, $sbDatabase, $ionicPopup, $timeout) {
-	// Saves popup form data
+  // Saves popup form data
   $scope.data = {};
 
   $scope.todos = $sbDatabase.table('todo').get(function(res) {}, function(err) {
-		// Show tutorial how to set up the Database if the Collection does not exist
+    // Show tutorial how to set up the Database if the Collection does not exist
     $scope.showTutorial = true;
   });
 
@@ -91,9 +91,10 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('AuthLoginCtrl', function($sbAuth, $scope, $state, $ionicPopup) {
+.controller('AuthLoginCtrl', function($sbAuth, $scope, $state, $ionicPopup, $sbPush) {
   $scope.login = function(user) {
     $sbAuth.login(user).then(function(res) {
+      $sbPush.sync();
       $state.go('tab.dash');
     }).catch(function(err) {
       var sbAlert = $ionicPopup.alert({
@@ -104,6 +105,7 @@ angular.module('starter.controllers', [])
   }
   $scope.social = function(provider) {
     $sbAuth.social(provider).then(function(res) {
+      $sbPush.sync();
       $state.go('tab.dash');
     }).catch(function(err) {
       console.log(err.data.message);
@@ -116,14 +118,15 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('AuthSignupCtrl', function($sbAuth, $scope, $state, $ionicPopup) {
+.controller('AuthSignupCtrl', function($sbAuth, $scope, $state, $ionicPopup, $sbPush) {
   $scope.signup = function(user) {
     $sbAuth.signup(user).then(function(res) {
+      $sbPush.sync();
       $state.go('tab.dash');
     }).catch(function(err) {
       var sbAlert = $ionicPopup.alert({
         title: 'Error',
-        template: err.data.message
+        template: err
       });
     });
   }
