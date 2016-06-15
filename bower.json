@@ -8,7 +8,8 @@
     "angular": "1.4.3"
   },
   "dependencies": {
-    "selfbits-angular-sdk": "^1.1.0",
-    "ionic": "^1.2.4"
+    "selfbits-angular-sdk": "^1.2.0",
+    "ionic": "^1.2.4",
+    "ngCordova": "^0.1.26-alpha"
   }
 }

@@ -7,22 +7,50 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'selfbitsAngular'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'selfbitsAngular', 'ngCordova'])
 
-.run(function($ionicPlatform, $sbAuth, $state) {
-
+.run(function($ionicPlatform, $sbAuth, $state, $sbPush, $rootScope, $ionicPopup) {
   $ionicPlatform.ready(function() {
+
+    // Configure and initialize Push notifications
+    // Please note that in order to user Push, you need to call $sbPush.sync() after authentication
+    // This is included in this example in the controller.js
+    if (window.PushNotification) {
+      var pushConfig = {
+        android: {
+          // For Android you need to add the Sender ID of your project here AND in the package.json
+          // afterwards run 'ionic state restore'
+          // More details can be found here : https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
+          senderID: "YOUR_SENDER_ID_HERE"
+        },
+        ios: {
+          "badge": true,
+          "sound": true,
+          "alert": true,
+        }
+      };
+      $sbPush.init(pushConfig);
+    }
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+  });
+
+  // Example for the use of push notifications. If you configured push notifications on the Backend and
+  // within your code, you can listen for push notifications with the 'pushNotificationReceived' event
+  $rootScope.$on('pushNotificationReceived', function(event, data) {
+    $ionicPopup.confirm({
+      title: data.title,
+      template: data.message
+    });
   });
 })
 

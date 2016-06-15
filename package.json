@@ -14,13 +14,27 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
+  "scripts": {
+    "setup" : "npm install -g ionic cordova bower && npm install && bower install && ionic state restore"
+  },
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-inappbrowser",
+    {
+      "variables": {
+        "SENDER_ID": "YOUR_SENDER_ID"
+      },
+      "locator": "phonegap-plugin-push",
+      "id": "phonegap-plugin-push"
+    }
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "ios",
+    "android"
+  ]
 }
