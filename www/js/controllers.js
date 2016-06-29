@@ -59,8 +59,9 @@ angular.module('starter.controllers', [])
       }, ]
     });
     myPopup.then(function(res) {
-      $sbDatabase.table('todo').save(res);
-      $scope.todos.docs.push(res);
+      $sbDatabase.table('todo').save(res, function(response) {
+          $scope.todos.docs.push(response);
+      });
       $scope.data = {};
     });
   };
