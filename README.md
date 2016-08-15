@@ -25,6 +25,7 @@ $ npm install -g ionic bower cordova
 $ cd selfbits-ionic-starter
 $ npm install
 $ bower install
+$ ionic state restore
 ```
 
 ## B. Setup
