@@ -1,6 +1,6 @@
 {
   "name": "selfbits-ionic-starter",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4"
