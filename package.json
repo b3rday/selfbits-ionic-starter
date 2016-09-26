@@ -1,6 +1,6 @@
 {
   "name": "selfbits-ionic-starter",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "An Ionic 1 starter project with Selfbits BaaS integration",
   "dependencies": {
     "gulp": "^3.5.6",
