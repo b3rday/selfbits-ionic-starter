@@ -60,14 +60,14 @@ angular.module('starter.controllers', [])
     });
     myPopup.then(function(res) {
       $sbDatabase.table('todo').save(res, function(response) {
-          $scope.todos.docs.push(response);
+        $scope.todos.docs.push(response);
       });
       $scope.data = {};
     });
   };
 })
 
-.controller('AccountCtrl', function($scope, $sbAuth, $state, $ionicPopup) {
+.controller('AccountCtrl', function($scope, $sbAuth, $state, $ionicPopup, $ionicHistory) {
   $scope.logoutAlert = function() {
     var sbAlert = $ionicPopup.confirm({
       title: 'Do you really want to log out?',
@@ -78,6 +78,10 @@ angular.module('starter.controllers', [])
       if (res) {
         console.log('Log Out');
         $sbAuth.logout();
+        $ionicHistory.clearHistory();
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
         $state.go('auth.login');
       } else {
         console.log('Cancel');
@@ -87,6 +91,10 @@ angular.module('starter.controllers', [])
 
   $scope.logout = function() {
     $sbAuth.logout();
+    $ionicHistory.clearHistory();
+    $ionicHistory.nextViewOptions({
+      disableBack: true
+    });
     $state.go('auth.login');
   }
 })

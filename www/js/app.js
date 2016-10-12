@@ -129,6 +129,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
       .state('tab.todo', {
         url: '/todo',
+        cache: false,
         views: {
           'tab-todo': {
             templateUrl: 'templates/tab-todo.html',
