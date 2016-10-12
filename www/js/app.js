@@ -56,149 +56,121 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 
 .config(function($stateProvider, $urlRouterProvider, $sbApiProvider) {
-  // add your Selfbits BaaS credentials here. If you don't have any yet head to http://www.selfbits.org
-  // Your Backend Subdomain, e.g. http://YOURPORJECT-app.selfbits.io
-  $sbApiProvider.domain = "";
-  // Your Backend App Id
-  $sbApiProvider.appId = "";
-  // BE CAREFUL WITH YOUR APP SECRET. IF YOU ARE HOSTING A PUBLIC APP USE ALLOWED ORIGINS INSTEAD.
-  $sbApiProvider.appSecret = "";
+    // add your Selfbits BaaS credentials here. If you don't have any yet head to http://www.selfbits.org
+    // Your Backend Subdomain, e.g. http://YOURPORJECT-app.selfbits.io
+    $sbApiProvider.domain = "";
+    // Your Backend App Id
+    $sbApiProvider.appId = "";
+    // BE CAREFUL WITH YOUR APP SECRET. IF YOU ARE HOSTING A PUBLIC APP USE ALLOWED ORIGINS INSTEAD.
+    $sbApiProvider.appSecret = "";
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+    // Ionic uses AngularUI Router which uses the concept of states
+    // Learn more here: https://github.com/angular-ui/ui-router
+    // Set up the various states which the app can be in.
+    // Each state's controller can be found in controllers.js
 
-  // setup an abstract state for the auth views, skip if user is already logged in
-  $stateProvider
-    .state('auth', {
-      url: '/auth',
-      abstract: true,
-      template: '<ion-nav-view>/<ion-nav-view>',
-      resolve: {
-        skipIfLoggedIn
-      }
-    })
-    .state('auth.login', {
-      url: '/login',
-      templateUrl: 'templates/auth-login.html',
-      controller: 'AuthLoginCtrl'
+    // setup an abstract state for the auth views, skip if user is already logged in
+    $stateProvider
+      .state('auth', {
+        url: '/auth',
+        abstract: true,
+        template: '<ion-nav-view>/<ion-nav-view>',
+        resolve: {
+          skipIfLoggedIn
+        }
+      })
+      .state('auth.login', {
+        url: '/login',
+        templateUrl: 'templates/auth-login.html',
+        controller: 'AuthLoginCtrl'
 
-    })
-    .state('auth.signup', {
-      url: '/signup',
-      templateUrl: 'templates/auth-signup.html',
-      controller: 'AuthSignupCtrl'
-    })
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html',
-      resolve: {
-        loginRequired
-      }
-    })
-    // Each tab has its own nav history stack:
-    .state('tab.dash', {
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
+      })
+      .state('auth.signup', {
+        url: '/signup',
+        templateUrl: 'templates/auth-signup.html',
+        controller: 'AuthSignupCtrl'
+      })
+      // setup an abstract state for the tabs directive
+      .state('tab', {
+        url: '/tab',
+        abstract: true,
+        templateUrl: 'templates/tabs.html',
+        resolve: {
+          loginRequired
         }
-      }
-    })
-    .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+      })
+      // Each tab has its own nav history stack:
+      .state('tab.dash', {
+        url: '/dash',
+        views: {
+          'tab-dash': {
+            templateUrl: 'templates/tab-dash.html',
+            controller: 'DashCtrl'
+          }
         }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+      })
+      .state('tab.chats', {
+        url: '/chats',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/tab-chats.html',
+            controller: 'ChatsCtrl'
+          }
         }
-      }
-    })
-    .state('tab.todo', {
-      url: '/todo',
-      views: {
-        'tab-todo': {
-          templateUrl: 'templates/tab-todo.html',
-          controller: 'ToDoCtrl'
+      })
+      .state('tab.chat-detail', {
+        url: '/chats/:chatId',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/chat-detail.html',
+            controller: 'ChatDetailCtrl'
+          }
         }
-      }
-    })
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+      })
+      .state('tab.todo', {
+        url: '/todo',
+        views: {
+          'tab-todo': {
+            templateUrl: 'templates/tab-todo.html',
+            controller: 'ToDoCtrl'
+          }
         }
-      }
-    })
+      })
+      .state('tab.account', {
+        url: '/account',
+        views: {
+          'tab-account': {
+            templateUrl: 'templates/tab-account.html',
+            controller: 'AccountCtrl'
+          }
+        }
+      })
 
-  // Make sure user is logged in OR check if user requires login
-  function skipIfLoggedIn($q, $sbAuth, $location, $timeout) {
-    var deferred = $q.defer();
-    if ($sbAuth.isAuthenticated()) {
-      $location.path('/tab/dash');
-      deferred.resolve();
-    } else {
-      deferred.resolve();
+    // Make sure user is logged in OR check if user requires login
+    function skipIfLoggedIn($q, $sbAuth, $location, $timeout) {
+      var deferred = $q.defer();
+      if ($sbAuth.isAuthenticated()) {
+        $location.path('/tab/dash');
+        deferred.resolve();
+      } else {
+        deferred.resolve();
+      }
+      return deferred.promise;
     }
-    return deferred.promise;
-  }
 
-  function loginRequired($q, $location, $sbAuth) {
-    var deferred = $q.defer();
-    console.log($sbAuth.isAuthenticated());
-    if ($sbAuth.isAuthenticated()) {
-      deferred.resolve();
-    } else {
-      console.log('to auth login');
-      $location.path('/auth/login');
-      deferred.resolve();
+    function loginRequired($q, $location, $sbAuth) {
+      var deferred = $q.defer();
+      console.log($sbAuth.isAuthenticated());
+      if ($sbAuth.isAuthenticated()) {
+        deferred.resolve();
+      } else {
+        console.log('to auth login');
+        $location.path('/auth/login');
+        deferred.resolve();
+      }
+      return deferred.promise;
     }
-    return deferred.promise;
-  }
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/auth/login');
-
-})
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// IMPORTANT : DELETE THE FOLLOWING BLOCK BEFORE YOU USE THE TEMPLATE!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// **************
-// DELETE - START
-// **************
-.config(function($sbApiProvider) {
-  function getQueryParams(qs) {
-    qs = qs.split('+').join(' ');
-    var params = {},
-      tokens,
-      re = /[?&]?([^=]+)=([^&]*)/g;
-    while (tokens = re.exec(qs)) {
-      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-    }
-    return params;
-  }
-  var params = getQueryParams(location.search);
-  if (params.domain && params.appId) {
-    $sbApiProvider.domain = params.domain;
-    $sbApiProvider.appId = params.appId;
-  }
-});
-// **************
-// DELETE - END
-// **************
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/auth/login');
+});// DEMOBLOCK_PLACEHOLDER
