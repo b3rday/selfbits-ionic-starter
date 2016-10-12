@@ -121,30 +121,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   background-image: url('../img/cubes.png');
 }
 
-.tabs {
-  border-color: #0281e4!important;
-  background-color: #0281e4!important;
-  height: 65px!important;
-  border-top-width: 0px!important;
-  line-height: 65px!important;
-  padding-top: 0px!important;
-  border-top: none !important;
-  background-size: 100% 0px;
-  }
-
-ion-tabs.tabs-color-active-positive .tab-item {
-    color: #fff;
+.platform-android .bar-custom {
+	top: 93px;
 }
-ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
-    color: #fff;
-    background-color: #0073c5;
-}
-.tab-item .icon {
-
-  margin-top:10px!important;
-}
-.tab-item.activated {
-  background-color: #0676cd!important;
+// Make sure that exhibitor content is shown
+.platform-android .has-tabs {
+	bottom: 0;
 }
 
 code { white-space: pre; }
