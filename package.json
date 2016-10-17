@@ -15,7 +15,7 @@
     "shelljs": "^0.3.0"
   },
   "scripts": {
-    "setup" : "npm install -g ionic cordova bower && npm install && bower install && ionic state restore"
+    "setup" : "npm install -g ionic cordova bower && npm install && bower install && ionic state restore && gulp"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
