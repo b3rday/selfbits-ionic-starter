@@ -1,14 +1,16 @@
 {
   "name": "selfbits-ionic-starter",
-  "version": "1.2.5",
+  "version": "1.2.8",
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "resolutions": {
-    "angular": "1.4.3"
+    "angular": "1.5.9"
   },
   "dependencies": {
+    "angular": "1.5.9",
+    "angular-resource": "1.5.9",
     "selfbits-angular-sdk": "^1.2.7",
     "ionic": "^1.2.4",
     "ngCordova": "^0.1.26-alpha"
