@@ -3,11 +3,12 @@
   "version": "1.2.8",
   "description": "An Ionic 1 starter project with Selfbits BaaS integration",
   "dependencies": {
-    "gulp": "^3.5.6",
+    "gulp": "^4.0.0",
     "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "snyk": "^1.105.0"
   },
   "devDependencies": {
     "bower": "^1.3.3",
@@ -15,7 +16,9 @@
     "shelljs": "^0.3.0"
   },
   "scripts": {
-    "setup" : "npm install -g ionic cordova bower && npm install && bower install && ionic state restore && gulp"
+    "setup": "npm install -g ionic cordova bower && npm install && bower install && ionic state restore && gulp",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -36,5 +39,6 @@
   "cordovaPlatforms": [
     "ios",
     "android"
-  ]
+  ],
+  "snyk": true
 }
